@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  key: MyString
+  formation_date: 2020-05-02 14:13:34
+
+two:
+  name: MyString
+  key: MyString
+  formation_date: 2020-05-02 14:13:34
