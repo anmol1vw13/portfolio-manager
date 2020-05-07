@@ -1,18 +1,10 @@
-ActiveAdmin.register Fund do
+# frozen_string_literal: true
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
+ActiveAdmin.register Fund do
   permit_params :name, :key, :formation_date
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:name, :key, :formation_date]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  sidebar 'Subcomponents', only: %i[show edit] do
+    ul do
+      li link_to 'Investor Fund Details', admin_fund_investor_fund_details_path(resource)
+    end
+  end
 end

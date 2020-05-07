@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateInvestorFundDetails < ActiveRecord::Migration[5.1]
   def change
     create_table :investor_fund_details do |t|

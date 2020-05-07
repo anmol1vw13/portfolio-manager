@@ -1,10 +1,12 @@
-ActiveAdmin.register InvestorFundDetail do
+# frozen_string_literal: true
 
+ActiveAdmin.register InvestorFundDetail do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
+  belongs_to :fund
   permit_params :money, :fund_id, :investor_id
   #
   # or
@@ -14,5 +16,4 @@ ActiveAdmin.register InvestorFundDetail do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

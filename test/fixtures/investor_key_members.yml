@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  email_id: MyString
+  email: MyString
   mobile: MyString
   investor: one
 
 two:
   name: MyString
-  email_id: MyString
+  email: MyString
   mobile: MyString
   investor: two

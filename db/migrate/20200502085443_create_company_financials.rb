@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCompanyFinancials < ActiveRecord::Migration[5.1]
   def change
     create_table :company_financials do |t|
@@ -9,6 +11,6 @@ class CreateCompanyFinancials < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_index :company_financials, [:date, :company_id], unique: true
+    add_index :company_financials, %i[date company_id], unique: true
   end
 end

@@ -1,18 +1,22 @@
-ActiveAdmin.register Company do
+# frozen_string_literal: true
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
+ActiveAdmin.register Company do
   permit_params :name, :registered_name, :founded, :sector
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:name, :registered_name, :founded, :sector]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+
+  form do |f|
+    f.inputs 'Details' do
+      f.input :name, input_html: { required: true }
+      f.input :registered_name, input_html: { required: true }
+      f.input :founded, input_html: { required: true }
+      f.input :sector, input_html: { required: true }
+    end
+    f.submit
+  end
+  sidebar 'Subcomponents', only: %i[show edit] do
+    ul do
+      li link_to 'Founders', admin_company_founders_path(resource)
+      li link_to 'Financials', admin_company_company_financials_path(resource)
+      li link_to 'Investments', admin_company_investments_path(resource)
+    end
+  end
 end

@@ -1,18 +1,11 @@
-ActiveAdmin.register Investment do
+# frozen_string_literal: true
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
+ActiveAdmin.register Investment do
   permit_params :round, :investment_date, :timestamp, :pre_money, :company_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:round, :investment_date, :timestamp, :pre_money, :company_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  belongs_to :company
+  sidebar 'Subcomponents', only: %i[show edit] do
+    ul do
+      li link_to 'Investment Details', admin_investment_investment_details_path(resource)
+    end
+  end
 end
